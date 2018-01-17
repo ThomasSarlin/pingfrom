@@ -21,7 +21,7 @@ class PagesController extends Controller
             'buttonText' =>'Send reply',
             'fieldText' =>'Apply creative message:'
         );
-        return view('pages.chat')-with($data);
+        return view('pages.chat')->with($data);
     }
     public function stats(){
         $data =array(
@@ -33,7 +33,8 @@ class PagesController extends Controller
     }
     public function ping(){
         $data = array(
-            'title'=>'Add your ping'
+            'title'=>'Add your ping and represent your country!',
+            'buttonText' => 'PING'
         );
         return view('pages.ping')->with($data);
     }
