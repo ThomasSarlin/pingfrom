@@ -12,6 +12,6 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
+Route::get('/chat', 'PagesController@chat');
 Route::get('/ping', 'PagesController@ping');
 Route::get('/stats', 'PagesController@stats');

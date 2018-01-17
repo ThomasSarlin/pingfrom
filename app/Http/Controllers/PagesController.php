@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-        return view('pages.index');
+        $data = array(
+            'title'=>'Welcome to WhatWhere?',
+            'text' =>'a simple ping contest for the world, be amazed.',
+            'buttonText' => 'start pinging'
+        );
+        return view('pages.index')->with($data);
     }
-    public function about(){
-        return view('pages.about');
+    public function chat(){
+        return view('pages.chat');
     }
     public function stats(){
         return view('pages.stats');
