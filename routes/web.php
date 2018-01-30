@@ -12,6 +12,11 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/chat', 'PagesController@chat');
-Route::get('/ping', 'PagesController@ping');
+Route::get('/chat', 'PostsController@index');
+Route::get('/ping', 'PingsController@index');
 Route::get('/stats', 'PagesController@stats');
+
+Route::resource('minimalusers','UserController');
+Route::resource('posts','PostsController');
+Route::resource('ping', 'PingsController');
+Route::get('ping/ping','Pingscontroller@ping');

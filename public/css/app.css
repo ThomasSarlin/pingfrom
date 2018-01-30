@@ -8350,3 +8350,24 @@ button.close {
   }
 }
 
+.btn-success {
+  border-radius: 2%;
+  color: black;
+  font-size: 30px;
+}
+
+#userName {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.chatPanel {
+  height: 600px;
+  overflow-y: auto;
+  border-style: solid;
+  border-radius: 1%;
+}
+
