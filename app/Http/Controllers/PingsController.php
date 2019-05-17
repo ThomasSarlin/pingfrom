@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Ping;
+use App\Country;
+use DB;
 use Cookie;
 class PingsController extends Controller
 {
@@ -16,7 +16,6 @@ class PingsController extends Controller
      */
     public function index()
     {
-        $pingCount=0;
         if(Cookie::get('userName')==null){
             return redirect('/')->with('error','Set nickname to proceed');
         }
@@ -35,21 +34,14 @@ class PingsController extends Controller
      */
     public function store(Request $request)
     {
-        $country=Cookie::get('country');
-        $ping = DB::table('pings')->where('country',$country)->count();;
-        if($ping==0){
-            $ping=new Ping;
-            $ping->country=$country;
-            $ping->pings=1;
-            $ping->save();
-        }else{
-            DB::table('pings')->where('country',$country)->increment('pings',1);
-        }
-        return redirect('/ping')->with('success',PingsController::getPingInfo());
+        DB::table('Tbl_Countries')->where('Co_Title',Cookie::get('country'))->increment('Co_Clicks',1);
+        DB::table('Tbl_Users')->where('Us_Name',Cookie::get('userName'))->increment('Us_Clicks',1);
+        return back()->with('success',PingsController::getClickInfo());
     }
-    private function getPingInfo(){
+    private function getClickInfo(){
         $country=Cookie::get('country');
-        $pings=Ping::where('country',$country)->value('pings');
-        return 'Click sent! '.$country." has ".$pings.' clicks!';
+        $clicks=DB::table('Tbl_Countries')->where('Co_Title',$country)->value('Co_Clicks');
+        return 'Click sent! '.$country." has ".$clicks.' clicks!';
     }
+    
 }

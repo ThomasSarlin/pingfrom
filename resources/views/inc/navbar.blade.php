@@ -17,9 +17,10 @@
     @if($userName!=null)
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/ping">Ping</a></li>
+        <li><a href="/ping">Click</a></li>
         <li><a href="/stats">Stats</a></li>
         <li><a href="/chat">Chat</a></li>
+        <li><a href="/userinfo">User Info</a></li>
       </ul>
     </div>
     @endif

@@ -11,8 +11,9 @@
         <p>{{$text}}</p>
         {!! Form::open(['action' => 'UserController@store','method'=>'POST']) !!}
             <div class="form-group">
+                {!! Form::hidden('country', $country) !!}
                 {{Form::text('name',$placeholder,['class'=>'form-control','id'=>'userName','placeholder'=>'Anonymous'])}}
-                {{Form::submit('Start pinging!',['class'=>'btn btn-info'])}}
+                {{Form::submit('Start clicking!',['class'=>'btn btn-info'])}}
             </div>
         {!! Form::close() !!}
     </div>

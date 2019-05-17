@@ -15,8 +15,15 @@ Route::get('/', 'PagesController@index');
 Route::get('/chat', 'PostsController@index');
 Route::get('/ping', 'PingsController@index');
 Route::get('/stats', 'PagesController@stats');
+Route::get('/userinfo', 'UserController@index');
 
 Route::resource('minimalusers','UserController');
 Route::resource('posts','PostsController');
 Route::resource('ping', 'PingsController');
+
+
 Route::get('ping/ping','Pingscontroller@ping');
+Route::get('getData', 'UserController@getData');
+Route::get('filter','PostsController@filter');
+Route::get('sortStats','PagesController@sort');
+

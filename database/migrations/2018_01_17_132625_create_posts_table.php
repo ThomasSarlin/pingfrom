@@ -13,12 +13,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('userName');
-            $table->string('country');
-            $table->mediumText('body');
+        Schema::create('Tbl_Posts', function (Blueprint $table) {
+            $table->increments('Po_Id');
+            $table->integer('Po_Co_Id')->unsigned();
+            $table->integer('Po_Us_Id')->unsigned();
+            $table->mediumText('Po_Body');
             $table->timestamps();
+        });
+        Schema::table('Tbl_Posts', function($table) {
+            $table->foreign('Po_Co_Id')->references('Co_Id')
+                ->on('Tbl_Countries')->onDelete('cascade');
+            $table->foreign('Po_Us_Id')->references('Us_Id')
+                ->on('Tbl_Users')->onDelete('cascade');
         });
     }
 
